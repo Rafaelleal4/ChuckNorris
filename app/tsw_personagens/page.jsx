@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import personagens from '@/data/starwars'
+import personagens from '@/data/chuckNorris'
 import styles from './page.module.css'
 
 function star() {
@@ -20,12 +20,12 @@ function star() {
     }, [])
     return (
         <div className={styles.main}>
-            <h1>Minha Api de Star Wars</h1>
+            <h1>Frases do Chuck Norris</h1>
             {
                 dadosApi ? (
                     <div>
                         {
-                            <div key={dadosApi.id}>
+                         <div key={dadosApi.id}>
                                 <h2>{dadosApi.value}</h2>
                             </div>
                         }
