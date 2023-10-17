@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react'
 import personagens from '@/data/chuckNorris'
 import styles from './page.module.css'
 
+
 function star() {
     const [dadosApi, setDadosApi] = useState('')
+    const [dadosApi2,setDadosApi2] = useState('')
     useEffect(() => {
         const persoFet = async () => {
             try {
@@ -19,14 +21,21 @@ function star() {
         persoFet();
     }, [])
     return (
+        <div>
+            <div className={styles.header}>
+                <img src='chuckicon.png' className={styles.imgh}/>
+            </div>
         <div className={styles.main}>
-            <h1>Frases do Chuck Norris</h1>
             {
                 dadosApi ? (
                     <div>
                         {
-                         <div key={dadosApi.id}>
+                            <div>
+<h1>Frases do Chuck Norris</h1>
+                         <div key={dadosApi.id} className={styles.text}>
+                           
                                 <h2>{dadosApi.value}</h2>
+                            </div>
                             </div>
                         }
                     </div>
@@ -34,6 +43,7 @@ function star() {
                     <p>Carregando dados da API...</p>
                 )
             }
+        </div>
         </div>
     )
 }
