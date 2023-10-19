@@ -84,3 +84,5 @@ const memes = [
         foto: "https://miro.medium.com/v2/resize:fit:720/0*OMoL9rqct_Izz0VD.gif",
     },
 ]
+
+export default memes
