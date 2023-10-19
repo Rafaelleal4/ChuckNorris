@@ -1,0 +1,12 @@
+.all{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+    border-radius: 15px;
+    width: 30vw;
+    height: 35vh;
+    margin-left: 35vw;
+}
