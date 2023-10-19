@@ -7,11 +7,14 @@ function Footer() {
         <div className={styles.gif}>
        <Image 
        className={styles.kick}
-       src={chuck-norris-kick-action (1).gif}
+       src="/chuck-norris-kick-action (1).gif}"
        width={50}
        height={50}
        alt="gif do Chuck Norris chutando"
        />
+        </div>
+        <div className={styles.conteudo}>
+            <p>todos os direitos reservado</p>
         </div>
     </div>
   )
