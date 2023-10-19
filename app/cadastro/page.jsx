@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import Input from "../components/Input/Input";
+import Cadastro from "../components/Cadastro/Cadastro";
 
 const cadastro = () => {
     const [frase, setFrase] = useState('');
@@ -8,8 +8,7 @@ const cadastro = () => {
 
     return (
         <div>
-            <Input text={'Registrar frase'} value={frase} setValue={setFrase}/>
-            <Input text={'Autor da frase'} value={author} setValue={setAuthor}/>
+            <Cadastro buttonText={'Registrar'} textFrase={'Registrar frase'} textAuthor={'Autor da frase'} frase={frase} author={author} setFrase={setFrase} setAuthor={setAuthor}/>
         </div>
     )
 }
