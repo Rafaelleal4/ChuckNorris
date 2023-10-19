@@ -1,0 +1,23 @@
+.header{
+    justify-content: space-between;
+}
+
+.categorias{
+    padding-left: 40%;
+}
+
+.links{
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.links li{
+    margin-right: 40px;
+}
+
+.links a{
+    text-decoration: none;
+}
