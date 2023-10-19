@@ -11,11 +11,11 @@
     padding-bottom: 7vh;
     background-color: orange;
 }.imgh{
-    width: 13vw;
+    width: 18vw;
     height: 26.5vh;
-    background-color: orange;
+
     border-radius: 200px;
-    margin-left: 43vw;
+    margin-left: 41vw;
 }
 .header{
     background-color: rgb(0, 149, 255);

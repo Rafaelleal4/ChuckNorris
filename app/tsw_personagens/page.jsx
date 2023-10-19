@@ -6,7 +6,7 @@ import styles from './page.module.css'
 
 function star() {
     const [dadosApi, setDadosApi] = useState('')
-    const [dadosApi2,setDadosApi2] = useState('')
+    
     useEffect(() => {
         const persoFet = async () => {
             try {
