@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './footer.module.css'
 import {FaSquareInstagram, FaEnvelope, FaSquareWhatsapp  } from "react-icons/fa6";
+import Link from 'next/link';
 function Footer() {
   return (
     <div className={styles.content}>
@@ -16,10 +17,16 @@ function Footer() {
           <h3>Contatos:</h3>
           <div className={styles.flex}> 
             <div>
+              <Link href={'/'} className={styles.link}>
                 <FaSquareInstagram className={styles.icon}/>
+              </Link>
+              <Link href={'/'} className={styles.link}>
                 <FaEnvelope className={styles.icon}/>
+              </Link>
             </div>
-              <FaSquareWhatsapp className={styles.icon2}/>
+              <Link href={'/'} className={styles.link}>
+                <FaSquareWhatsapp className={styles.icon}/>
+              </Link>
           </div>
           <div id={styles.texto}>
             <p id={styles.txt}>todos os direitos reservado</p>
