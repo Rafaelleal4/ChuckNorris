@@ -1,0 +1,26 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-height: 50vh;
+    overflow-y: auto;
+    margin: 2rem;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 0.5rem;
+    width: 40%;
+    height: auto;
+    border-radius: 0.4rem;
+    -webkit-box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.2);
+    box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.2);
+}

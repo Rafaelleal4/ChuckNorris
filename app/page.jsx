@@ -1,12 +1,18 @@
+"use client"
 import Link from "next/link";
-import Footer from "./components/footer/Footer";
+
+import Header from "./components/header/Header";
+import Cadastro from "./components/Cadastro/Cadastro";
+
 
 
 export default function Home() {
   return (
  <div>
-  <Link href={"tsw_personagens"}>Resfcio</Link>
-  <Footer/>
+
+  <Header />
+  <Cadastro textFrase={"Digite uma frase"} textAuthor={"Nome do Autor"} buttonText={"Enviar"} buttonText2={"Frases Cadastradas"}/>
+
  </div>
   )
 }
