@@ -2,11 +2,12 @@
 import React, { useEffect, useState } from 'react'
 import personagens from '@/data/chuckNorris'
 import styles from './page.module.css'
+import Header from '../components/header/Header'
 
 
 function star() {
     const [dadosApi, setDadosApi] = useState('')
-    
+
     useEffect(() => {
         const persoFet = async () => {
             try {
@@ -22,28 +23,28 @@ function star() {
     }, [])
     return (
         <div>
-            <div className={styles.header}>
-                <img src='chuckicon.png' className={styles.imgh}/>
+            <Header />
+            <div className={styles.main}>
+                {
+                    dadosApi ? (
+                        <div>
+                            {
+                                <div className={styles.hero}>
+                                    <h1>Frases do Chuck Norris</h1>
+                                    <div key={dadosApi.id} className={styles.text}>
+                                        <div>
+                                            
+                                        </div>
+                                        <h2 className={styles.textRanom}>{dadosApi.value}</h2>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    ) : (
+                        <p>Carregando dados da API...</p>
+                    )
+                }
             </div>
-        <div className={styles.main}>
-            {
-                dadosApi ? (
-                    <div>
-                        {
-                            <div>
-<h1>Frases do Chuck Norris</h1>
-                         <div key={dadosApi.id} className={styles.text}>
-                           
-                                <h2>{dadosApi.value}</h2>
-                            </div>
-                            </div>
-                        }
-                    </div>
-                ) : (
-                    <p>Carregando dados da API...</p>
-                )
-            }
-        </div>
         </div>
     )
 }
