@@ -22,4 +22,14 @@ export class ListaRegistro {
     getAllComments() {
         return this.madeComments
     }
+
+    emptyInputs(frase, author) {
+        if(frase == "" && author == "") {
+            return true
+        } else if(frase == "" || author == "") {
+            return true
+        } else {
+            return false
+        }
+    }
 }

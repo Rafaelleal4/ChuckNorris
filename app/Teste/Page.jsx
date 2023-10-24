@@ -8,18 +8,32 @@ const listaRegistro = new ListaRegistro();
 const teste = () => {
     const [frase, setFrase] = useState('');
     const [author, setAuthor] = useState('');
-    
+
     const add = () => {
         const registro = new Registro(frase, author);
-        listaRegistro.add(registro);
+        verifyInputs(registro)
+        console.log(listaRegistro.madeComments);
+    }
+
+    const verifyInputs = (registro) => {
+        listaRegistro.emptyInputs(frase, author) ? (
+            alert("Erro"),
+            clean()
+        ) : (
+            alert("Deu bom!!!"),
+            listaRegistro.add(registro),
+            clean()
+        )
+    }
+
+    const clean = () => {
         setFrase('')
         setAuthor('')
-        console.log(listaRegistro.madeComments);
     }
 
     return (
         <div>
-            <Cadastro textFrase={'Registrar frase'} textAuthor={'Autor da frase'} frase={frase} author={author} setFrase={setFrase} setAuthor={setAuthor} buttonText={'Registrar'} onClick={add}/>
+            <Cadastro textFrase={'Registrar frase'} textAuthor={'Autor da frase'} frase={frase} author={author} setFrase={setFrase} setAuthor={setAuthor} buttonText={'Registrar'} onClick={add} />
             <div>
                 {
                     listaRegistro.madeComments.map((comment) => (
