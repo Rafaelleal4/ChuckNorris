@@ -1,9 +1,15 @@
 .header{
     justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: transparent;
+    border-bottom: 2px solid;
+    margin: 0.5rem;
 }
 
 .categorias{
-    padding-left: 40%;
+    padding-right: 20%;
 }
 
 .links{
@@ -15,9 +21,16 @@
 }
 
 .links li{
-    margin-right: 40px;
+    margin-right: 50px;
 }
 
 .links a{
     text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(61, 59, 59);
+    font-size: 17px;
+}
+
+.links :hover{
+    color: rgb(132, 125, 125);
 }
