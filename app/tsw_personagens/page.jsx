@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import personagens from '@/data/chuckNorris'
 import styles from './page.module.css'
 import Header from '../components/header/Header'
+import Randomizer from '../components/Randomizer/Randomizer'
 
 
 function star() {
@@ -30,10 +31,10 @@ function star() {
                         <div>
                             {
                                 <div className={styles.hero}>
-                                    <h1>Frases do Chuck Norris</h1>
+                                    <h1>Frases e imagens do Chuck Norris</h1>
                                     <div key={dadosApi.id} className={styles.text}>
-                                        <div>
-                                            
+                                        <div className={styles.img}>
+                                            <Randomizer width={350} height={350} />
                                         </div>
                                         <h2 className={styles.textRanom}>{dadosApi.value}</h2>
                                     </div>
@@ -44,6 +45,9 @@ function star() {
                         <p>Carregando dados da API...</p>
                     )
                 }
+            </div>
+            <div className={styles.leafBg}>
+                <img src="/tumbleweed.gif" alt="Old west leaf" className={styles.leaf}/>
             </div>
         </div>
     )

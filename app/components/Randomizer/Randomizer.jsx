@@ -1,8 +1,9 @@
 'use client'
 import React, { useState, useEffect } from 'react'
+import Styles from './randomizer.module.css'
 import memes from 'data/imagem'
 
-function Randomizer() {
+function Randomizer({height, width}) {
     const [image, setImage] = useState('');
     useEffect(() => {
         const Random = async () => {
@@ -23,7 +24,7 @@ function Randomizer() {
     return (
 
         <div>
-            <img src={image} alt="meme do Chucky Norris" width={650} height={650} />
+            <img src={image} alt="meme do Chucky Norris" width={width} height={height}  className={Styles.imgs}/>
         </div>
     )
 }

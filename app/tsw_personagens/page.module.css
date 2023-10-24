@@ -1,4 +1,5 @@
 .main{
+    background-color:  #f3f3f3;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,6 +7,7 @@
     margin: 2rem;
     padding: 0.5rem;
     text-decoration: none;
+    border-radius: 0.5rem;
 }
 
 .hero {
@@ -13,20 +15,47 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 15px;
+    width: 75vw;
 }
 
 .text{
-    background-color:  rgb(227, 241, 251);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 1rem;
-    border-radius: 0.5rem;
+    width: 80%;
     padding: 1rem;
 }
 .textRandom {
+    text-align: center;
+    font-size: 25px;
+}
+
+.img {
+    margin: 1.5rem;
+}
+
+.leafBg {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
+}
+
+.leaf {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15vw;
+    animation: leafAnimation 3s ease-in infinite;
+}
+
+
+@keyframes leafAnimation {
+    0% {right: 0%;}
+    25% {right: 25%;}
+    50% {right: 50%;}
+    75% {right: 75%;}
+    100% {right: 100%;}
 }
