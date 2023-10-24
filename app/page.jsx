@@ -1,13 +1,14 @@
 "use client"
 import Link from "next/link";
-import Randomizer from "./components/randomizer/Randomizer";
+import Header from "./components/header/Header";
+import Cadastro from "./components/Cadastro/Cadastro";
 
 
 export default function Home() {
   return (
  <div>
-  <Link href={"tsw_personagens"}>Resfcio</Link>
-  <Randomizer/>
+  <Header />
+  <Cadastro textFrase={"Digite uma frase"} textAuthor={"Nome do Autor"} buttonText={"Enviar"} buttonText2={"Frases Cadastradas"}/>
  </div>
   )
 }

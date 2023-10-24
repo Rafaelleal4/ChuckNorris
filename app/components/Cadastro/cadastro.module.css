@@ -4,9 +4,27 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    background-color: orange;
+    background-image: url(https://img.r7.com/images/2017/08/25/6azld30mdw_5j8ymqja2g_file?dimensions=460x305&&amp;&amp;&amp;&amp;resize=460x305&amp;crop=517x343+185+0&amp;&amp;&amp;&amp;resize=460x305&amp;crop=517x343+185+0);
     border-radius: 15px;
     width: 30vw;
-    height: 35vh;
+    height: 38vh;
     margin-left: 35vw;
+    gap: 10px;
+    color: white;
+}
+.button{
+    background-color: rgb(44, 139, 255);
+    border: 1px rgba(29, 29, 29, 0.641) solid;
+    border-radius: 5px;
+    padding: 7px;
+    color: white;
+}
+.inp{
+    border: 1.5px black solid;
+    margin: 6px;
+
+    border-radius: 5.5px;
+    padding: 5px;
+    margin-top: -1vh;
+    margin-bottom: 2vh;
 }
