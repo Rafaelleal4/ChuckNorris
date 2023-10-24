@@ -18,4 +18,8 @@ export class ListaRegistro {
     add(param) {
         this.madeComments.push(param)
     }
+
+    getAllComments() {
+        return this.madeComments
+    }
 }

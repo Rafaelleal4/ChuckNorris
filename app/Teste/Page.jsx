@@ -8,7 +8,6 @@ const teste = () => {
     const [frase, setFrase] = useState('');
     const [author, setAuthor] = useState('');
     const [dadosApi, setDadosApi] = useState('');
-
     const listaRegistro = new ListaRegistro();
     
     const add = () => {
