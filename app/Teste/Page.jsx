@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Registro, ListaRegistro } from "@/models/Register";
 import Cadastro from "../components/Cadastro/Cadastro";
 import styles from './teste.module.css'
+import CardFrases from "../components/CardsFrases/CardsFrases";
 
 const listaRegistro = new ListaRegistro();
 
@@ -35,16 +36,7 @@ const teste = () => {
     return (
         <div className={styles.global}>
             <Cadastro textFrase={'Registrar frase'} textAuthor={'Autor da frase'} frase={frase} author={author} setFrase={setFrase} setAuthor={setAuthor} buttonText={'Registrar'} onClick={add} />
-            <div className={styles.list}>
-                {
-                    listaRegistro.madeComments.map((comment) => (
-                        <div key={comment.id} className={styles.card}>
-                            <p>{comment.frase}</p>
-                            <p><strong>{comment.author}</strong></p>
-                        </div>
-                    ))
-                }
-            </div>
+            <CardFrases list={listaRegistro.madeComments}/>
         </div>
     )
 }

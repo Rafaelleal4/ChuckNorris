@@ -1,13 +1,13 @@
 import styles from './cardsFrases.module.css'
 
-const CardFrases = ({list, frase, author}) => {
+const CardFrases = ({list}) => {
     return (
         <div className={styles.list}>
         {
             list.map((comment) => (
                 <div key={comment.id} className={styles.card}>
-                    <p><strong>{frase}</strong></p>
-                    <p><i>{`- ${author}`}</i></p>
+                    <p><strong>{comment.frase}</strong></p>
+                    <p><i>{`- ${comment.author}`}</i></p>
                 </div>
             ))
         }
