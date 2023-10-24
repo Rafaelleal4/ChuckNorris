@@ -51,6 +51,9 @@
     animation: leafAnimation 3s ease-in infinite;
 }
 
+.load {
+    width: 10vw;
+}
 
 @keyframes leafAnimation {
     0% {right: 0%;}

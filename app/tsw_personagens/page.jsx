@@ -42,7 +42,7 @@ function star() {
                             }
                         </div>
                     ) : (
-                        <p>Carregando dados da API...</p>
+                        <img src="/tumbleweed_idle.webp" alt="tuble weeds" className={styles.load}/>
                     )
                 }
             </div>
