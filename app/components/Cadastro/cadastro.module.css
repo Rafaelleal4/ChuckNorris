@@ -6,23 +6,39 @@
     flex-direction: column;
     background-image: url(https://img.r7.com/images/2017/08/25/6azld30mdw_5j8ymqja2g_file?dimensions=460x305&&amp;&amp;&amp;&amp;resize=460x305&amp;crop=517x343+185+0&amp;&amp;&amp;&amp;resize=460x305&amp;crop=517x343+185+0);
     border-radius: 15px;
-    width: 30vw;
-    height: 38vh;
+    width: 35vw;
+    height: 50vh;
     margin-left: 35vw;
     gap: 10px;
     color: white;
 }
-.button{
-    background-color: rgb(44, 139, 255);
+.h2{
+    margin-top: -1vh;
+    margin-bottom: 24vh;
+    font-size: xx-large;
+    
+}
+.button1{
+    background-color:rgb(0, 64, 255);
     border: 1px rgba(29, 29, 29, 0.641) solid;
     border-radius: 5px;
     padding: 7px;
     color: white;
+    font-size: medium;
+}
+.button2{
+    background-color: rgb(0, 64, 255);
+    border: 1px rgba(29, 29, 29, 0.641) solid;
+    border-radius: 5px;
+    padding: 7px;
+    color: white;
+    font-size: medium;
+    width: 21vw;
 }
 .inp{
     border: 1.5px black solid;
     margin: 6px;
-
+    max-width: 11vw;
     border-radius: 5.5px;
     padding: 5px;
     margin-top: -1vh;
