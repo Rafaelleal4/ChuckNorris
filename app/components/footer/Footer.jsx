@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './footer.module.css'
-import {FaSquareInstagram, FaEnvelope, FaSquareWhatsapp  } from "react-icons/fa6";
+import { FaSquareInstagram, FaEnvelope, FaSquareWhatsapp  } from "react-icons/fa6";
 import Link from 'next/link';
 function Footer() {
   return (
