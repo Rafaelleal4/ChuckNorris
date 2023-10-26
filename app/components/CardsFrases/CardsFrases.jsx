@@ -23,17 +23,25 @@ const CardFrases = ({ list, exclude }) => {
     }
 
     useEffect(() => {
+        let ignore = false;
+
         const persoFet = async () => {
             try {
                 const dados = await personagens()
-                setDadosApi(dados)
-                console.log(dados)
-
+                if (!ignore) {
+                    setDadosApi(dados)
+                    console.log(dados)
+                }
             } catch (e) {
                 throw e
             }
         };
         persoFet();
+
+        return () => {
+            ignore = true;
+        };
+
     }, [])
 
     return (
