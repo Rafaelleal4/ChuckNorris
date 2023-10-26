@@ -7,21 +7,33 @@ import Randomizer from '../components/Randomizer/Randomizer'
 
 
 function star() {
-    const [dadosApi, setDadosApi] = useState('')
+    const [dadosApi, setDadosApi] = useState(null)
 
     useEffect(() => {
+        let ignore = false;
+
         const persoFet = async () => {
             try {
                 const dados = await personagens()
-                setDadosApi(dados)
-                console.log(dados)
-
+                if (!ignore) {
+                    setDadosApi(dados)
+                    console.log(dados)
+                }
             } catch (e) {
                 throw e
             }
         };
         persoFet();
+
+        return () => {
+            ignore = true;
+        };
+
     }, [])
+
+    const refresh = () => {
+
+    }
     return (
         <div>
             <Header />
@@ -30,7 +42,7 @@ function star() {
                     dadosApi ? (
                         <div>
                             {
-                                <div className={styles.hero}>
+                                <div className={styles.hero} onClick={refresh}>
                                     <h1>Frases e imagens do Chuck Norris</h1>
                                     <div key={dadosApi.id} className={styles.text}>
                                         <div className={styles.img}>
@@ -42,12 +54,12 @@ function star() {
                             }
                         </div>
                     ) : (
-                        <img src="/tumbleweed_idle.webp" alt="tuble weeds" className={styles.load}/>
+                        <img src="/tumbleweed_idle.webp" alt="tuble weeds" className={styles.load} />
                     )
                 }
             </div>
             <div className={styles.leafBg}>
-                <img src="/tumbleweed.gif" alt="Old west leaf" className={styles.leaf}/>
+                <img src="/tumbleweed.gif" alt="Old west leaf" className={styles.leaf} />
             </div>
         </div>
     )
