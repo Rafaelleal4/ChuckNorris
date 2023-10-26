@@ -15,15 +15,11 @@ const Header = () => {
             <ul className={styles.links}>
 
             <li>
-            <Link href='./'>Link1</Link>
+            <Link href={'/'}>Home</Link>
             </li>
             
             <li>
-            <Link href='./'>Link2</Link>
-            </li>
-
-            <li>
-            <Link href='./'>Link3</Link>
+            <Link href={'/cadastro'}>Cadastro</Link>
             </li>
 
             </ul>
