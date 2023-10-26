@@ -3,6 +3,7 @@ export class Registro {
         this.id = this.generateId();
         this.frase = frase;
         this.author = author;
+        this.heart = 0
     }
 
     generateId() {

@@ -25,4 +25,14 @@
     box-shadow: 10px 10px 33px 0px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
     text-overflow: ellipsis;
+    position: relative;
+}
+
+.heart {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
