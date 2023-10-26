@@ -7,22 +7,31 @@ import Randomizer from './components/randomizer/Randomizer'
 import Footer from './components/footer/Footer'
 
 
+
 function star() {
-    const [dadosApi, setDadosApi] = useState('')
-
-    useEffect(() => {
-        const persoFet = async () => {
-            try {
-                const dados = await personagens()
-                setDadosApi(dados)
-                console.log(dados)
-
-            } catch (e) {
-                throw e
-            }
-        };
-        persoFet();
-    }, [])
+    const [dadosApi, setDadosApi] = useState(null)
+   useEffect(() => {
+          let ignore = false;
+  
+          const persoFet = async () => {
+              try {
+                  const dados = await personagens() 
+     if (!ignore) {
+                      setDadosApi(dados)
+                      console.log(dados)
+                  }
+              } catch (e) {
+                  throw e
+              }
+          };
+          persoFet();
+  
+          return () => {
+              ignore = true;
+          };
+  
+      }, [])
+  
     return (
       <>
       <Header />
