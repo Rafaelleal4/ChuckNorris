@@ -4,6 +4,8 @@ import { Registro, ListaRegistro } from "@/models/Register";
 import Cadastro from "../components/Cadastro/Cadastro";
 import styles from "../cadastro/cadastro.module.css"
 import CardFrases from "../components/CardsFrases/CardsFrases";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
 const listaRegistro = new ListaRegistro();
 
 const cadastro = () => {
@@ -34,10 +36,14 @@ const cadastro = () => {
     }
 
     return (
+        <>
+        <Header />
         <div className={styles.all}>
             <Cadastro author={author} frase={frase} setAuthor={setAuthor} setFrase={setFrase} textFrase={'Digite uma frase'} textAuthor={'Autor da frase'} onClick={add} buttonText={'Enviar'} list={listaRegistro.madeComments}/>
             <CardFrases list={listaRegistro.madeComments}/>
         </div>
+        <Footer />
+        </>
     )
 }
 
