@@ -1,17 +1,60 @@
 "use client"
-import Link from "next/link";
-import Header from "./components/header/Header";
-import Cadastro from "./components/Cadastro/Cadastro";
-import Footer from "./components/footer/Footer";
+import React, { useEffect, useState } from 'react'
+import personagens from '@/data/chuckNorris'
+import styles from './page.module.css'
+import Header from './components/header/Header'
+import Randomizer from './components/randomizer/Randomizer'
+import Footer from './components/footer/Footer'
 
 
+function star() {
+    const [dadosApi, setDadosApi] = useState('')
 
-export default function Home() {
-  return (
-    <div>
+    useEffect(() => {
+        const persoFet = async () => {
+            try {
+                const dados = await personagens()
+                setDadosApi(dados)
+                console.log(dados)
+
+            } catch (e) {
+                throw e
+            }
+        };
+        persoFet();
+    }, [])
+    return (
+      <>
       <Header />
-      <Cadastro textFrase={"Digite uma frase"} textAuthor={"Nome do Autor"} buttonText={"Enviar"} buttonText2={"Frases Cadastradas"} />
-      <Footer />
-    </div>
-  )
+        <div>
+            <div className={styles.main}>
+                {
+                    dadosApi ? (
+                        <div>
+                            {
+                                <div className={styles.hero}>
+                                    <h1>Frases e imagens do Chuck Norris</h1>
+                                    <div key={dadosApi.id} className={styles.text}>
+                                        <div className={styles.img}>
+                                            <Randomizer width={350} height={350} />
+                                        </div>
+                                        <h2 className={styles.textRanom}>{dadosApi.value}</h2>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    ) : (
+                        <img src="/tumbleweed_idle.webp" alt="tuble weeds" className={styles.load}/>
+                    )
+                }
+            </div>
+            <div className={styles.leafBg}>
+                <img src="/tumbleweed.gif" alt="Old west leaf" className={styles.leaf}/>
+            </div>
+        </div>
+        <Footer />
+      </>
+    )
 }
+
+export default star
