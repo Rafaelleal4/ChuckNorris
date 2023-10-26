@@ -24,7 +24,7 @@ const CardFrases = ({list}) => {
             {
                 list.map((comment) => (
                     <div key={comment.id} className={styles.card}>
-                        <p><strong>{comment.frase}</strong></p>
+                        <p><strong>" {comment.frase} "</strong></p>
                         <p><i>{`- ${comment.author}`}</i></p>
                         <div>
                             <button onClick={addHeart} className={styles.heart}><FaHeart style={{color: color, transition:'ease-in'}}/> {heart}</button>
