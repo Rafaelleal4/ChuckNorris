@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 65vw;
     height: 30vh;
     padding: 2rem;
     margin: 1rem;
@@ -41,6 +41,6 @@
 
 .button:hover {
     color: #dadada;
-    background-color: #656565;
+    background-color: #63420e;
     transition: 0.3s;
 }
