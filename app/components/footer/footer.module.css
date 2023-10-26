@@ -1,32 +1,44 @@
-.gif{
-    border-bottom: solid 0.1px;
-    margin-left: 100px;
-    margin-right: 100px;
+.gif {
+    border-bottom: 2px solid;
+    margin: auto;
+    margin-right: 25px;
+    margin-left: 10px;
 }
-.gif img{
+
+.gif img {
     margin-left: 48%;
 }
-.conteudo{
+
+.conteudo {
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
 }
-.flex{
+
+.flex {
     display: flex;
     margin-right: 44px;
 }
-.icon{
+
+.icon {
     margin-left: 2rem;
     width: 40px;
     height: 40px;
     text-decoration: none;
     color: #000;
 }
-.link :hover{
-    width: 30px;
-    height: 30px;
+
+.link :hover {
+   color: #63420e;
 }
-#txt{
+
+#txt {
     font-size: 19px;
+}
+
+.content {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
