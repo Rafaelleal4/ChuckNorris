@@ -1,5 +1,4 @@
 import styles from './cadastro.module.css'
-import CardFrases from '../CardsFrases/CardsFrases'
 
 const Cadastro = ({ buttonText, onClick, textFrase, textAuthor, author, frase, setFrase, setAuthor, list }) => {
     return (
@@ -10,7 +9,6 @@ const Cadastro = ({ buttonText, onClick, textFrase, textAuthor, author, frase, s
                 <input className={styles.inp} placeholder={textFrase} value={frase} onChange={e => setFrase(e.target.value)} />
                 <button className={styles.button} onClick={onClick}>{buttonText}</button>
             </section>
-            <CardFrases list={list} />
         </div>
     )
 }
