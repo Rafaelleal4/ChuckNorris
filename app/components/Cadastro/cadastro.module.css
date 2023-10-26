@@ -1,46 +1,46 @@
-.all{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+.all {
     display: flex;
     flex-direction: column;
-    background-image: url(https://img.r7.com/images/2017/08/25/6azld30mdw_5j8ymqja2g_file?dimensions=460x305&&amp;&amp;&amp;&amp;resize=460x305&amp;crop=517x343+185+0&amp;&amp;&amp;&amp;resize=460x305&amp;crop=517x343+185+0);
-    border-radius: 15px;
-    width: 35vw;
-    height: 50vh;
-    margin-left: 35vw;
-    gap: 10px;
-    color: white;
+    justify-content: center;
+    align-items: center;
 }
-.h2{
-    margin-top: -1vh;
-    margin-bottom: 24vh;
-    font-size: xx-large;
-    
+
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 30vh;
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 0.4rem;
+    -webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.5);
 }
-.button1{
-    background-color:rgb(0, 64, 255);
-    border: 1px rgba(29, 29, 29, 0.641) solid;
-    border-radius: 5px;
-    padding: 7px;
-    color: white;
-    font-size: medium;
+
+.inp {
+    width: 60%;
+    height: 4vh;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #dadadada;
+    padding: 0.5rem;
+    margin: 0.5rem;
 }
-.button2{
-    background-color: rgb(0, 64, 255);
-    border: 1px rgba(29, 29, 29, 0.641) solid;
-    border-radius: 5px;
-    padding: 7px;
-    color: white;
-    font-size: medium;
-    width: 21vw;
+
+.button {
+    width: 25%;
+    height: 5vh;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 15px;
+    background-color: #dadadada;
 }
-.inp{
-    border: 1.5px black solid;
-    margin: 6px;
-    max-width: 11vw;
-    border-radius: 5.5px;
-    padding: 5px;
-    margin-top: -1vh;
-    margin-bottom: 2vh;
+
+.button:hover {
+    color: #dadada;
+    background-color: #656565;
+    transition: 0.3s;
 }
