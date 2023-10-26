@@ -33,4 +33,15 @@ export class ListaRegistro {
             return false
         }
     }
+
+    getCommentById(id) {
+        return this.madeComments.find((comment) => comment.id == id)
+    }
+
+    excludeComment(id) {
+        const listComments = this.madeComments = this.madeComments.filter(
+            (comment) => comment.id != id
+        );
+        return listComments;
+    }
 }
