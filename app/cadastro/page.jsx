@@ -3,7 +3,6 @@ import { useState } from "react"
 import { Registro, ListaRegistro } from "@/models/Register";
 import Cadastro from "../components/Cadastro/Cadastro";
 import styles from "../cadastro/cadastro.module.css"
-import CardFrases from "../components/CardsFrases/CardsFrases";
 const listaRegistro = new ListaRegistro();
 
 const cadastro = () => {
