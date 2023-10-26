@@ -33,36 +33,36 @@ function star() {
       }, [])
   
     return (
-      <>
-      <Header />
-        <div>
-            <div className={styles.main}>
-                {
-                    dadosApi ? (
-                        <div>
-                            {
-                                <div className={styles.hero}>
-                                    <h1>Frases e imagens do Chuck Norris</h1>
-                                    <div key={dadosApi.id} className={styles.text}>
-                                        <div className={styles.img}>
-                                            <Randomizer width={350} height={350} />
+        <>
+            <Header />
+            <div>
+                <div className={styles.main}>
+                    {
+                        dadosApi ? (
+                            <div>
+                                {
+                                    <div className={styles.hero}>
+                                        <h1>Frases e imagens do Chuck Norris</h1>
+                                        <div key={dadosApi.id} className={styles.text}>
+                                            <div className={styles.img}>
+                                                <Randomizer width={350} height={350} />
+                                            </div>
+                                            <h2 className={styles.textRanom}>{dadosApi.value}</h2>
                                         </div>
-                                        <h2 className={styles.textRanom}>{dadosApi.value}</h2>
                                     </div>
-                                </div>
-                            }
-                        </div>
-                    ) : (
-                        <img src="/tumbleweed_idle.webp" alt="tuble weeds" className={styles.load}/>
-                    )
-                }
+                                }
+                            </div>
+                        ) : (
+                            <img src="/tumbleweed_idle.webp" alt="tuble weeds" className={styles.load} />
+                        )
+                    }
+                </div>
+                <div className={styles.leafBg}>
+                    <img src="/tumbleweed.gif" alt="Old west leaf" className={styles.leaf} />
+                </div>
             </div>
-            <div className={styles.leafBg}>
-                <img src="/tumbleweed.gif" alt="Old west leaf" className={styles.leaf}/>
-            </div>
-        </div>
-        <Footer />
-      </>
+            <Footer />
+        </>
     )
 }
 

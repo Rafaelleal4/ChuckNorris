@@ -3,6 +3,7 @@ export class Registro {
         this.id = this.generateId();
         this.frase = frase;
         this.author = author;
+        this.heart = 0
     }
 
     generateId() {
@@ -31,5 +32,16 @@ export class ListaRegistro {
         } else {
             return false
         }
+    }
+
+    getCommentById(id) {
+        return this.madeComments.find((comment) => comment.id == id)
+    }
+
+    excludeComment(id) {
+        const listComments = this.madeComments = this.madeComments.filter(
+            (comment) => comment.id != id
+        );
+        return listComments;
     }
 }

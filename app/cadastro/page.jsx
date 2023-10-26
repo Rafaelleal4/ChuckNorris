@@ -10,6 +10,7 @@ const listaRegistro = new ListaRegistro();
 
 const cadastro = () => {
 
+    const [list, setList] = useState(listaRegistro.madeComments)
     const [frase, setFrase] = useState('');
     const [author, setAuthor] = useState('');
 
@@ -35,12 +36,20 @@ const cadastro = () => {
         setAuthor('')
     }
 
+    const deleteCard = (id) => {
+        const comment = listaRegistro.getAllComments()
+
+        if(comment) {
+            listaRegistro.excludeComment(id)
+        }
+    }
+
     return (
         <>
         <Header />
         <div className={styles.all}>
             <Cadastro author={author} frase={frase} setAuthor={setAuthor} setFrase={setFrase} textFrase={'Digite uma frase'} textAuthor={'Autor da frase'} onClick={add} buttonText={'Enviar'} list={listaRegistro.madeComments}/>
-            <CardFrases list={listaRegistro.madeComments}/>
+            <CardFrases list={listaRegistro.madeComments} exclude={deleteCard}/>
         </div>
         <Footer />
         </>
