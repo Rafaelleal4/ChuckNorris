@@ -17,19 +17,19 @@ function Footer() {
           <h3>Contatos:</h3>
           <div className={styles.flex}> 
             <div>
-              <Link href={'/'} className={styles.link}>
+              <Link href={'https://www.instagram.com/'} target='_blank' className={styles.link}>
                 <FaSquareInstagram className={styles.icon}/>
               </Link>
-              <Link href={'/'} className={styles.link}>
+              <Link href={'https://www.google.com/intl/pt-BR/gmail/about/'} target='_blank' className={styles.link}>
                 <FaEnvelope className={styles.icon}/>
               </Link>
             </div>
-              <Link href={'/'} className={styles.link}>
-                <FaSquareWhatsapp className={styles.icon}/>
+              <Link href={'https://www.whatsapp.com/?lang=pt_BR'} target='_blank' className={styles.link}>
+                <FaSquareWhatsapp className={styles.icon}  />
               </Link>
           </div>
           <div id={styles.texto}>
-            <p id={styles.txt}>todos os direitos reservado</p>
+            <p id={styles.txt}>todos os direitos reservados</p>
           </div>
 
         </div>
