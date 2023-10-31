@@ -10,13 +10,19 @@ import Footer from "../components/footer/Footer";
 const listaRegistro = new ListaRegistro();
 
 const cadastro = () => {
+    //Valores
     const [frase, setFrase] = useState('');
     const [author, setAuthor] = useState('');
+    //Estilização
     const [color, setColor] = useState('#000')
     const [show, setShow] = useState('flex')
     const [cardsColor, setCardsColor] = useState('')
+    //API e list
     const [dadosApi, setDadosApi] = useState('')
     const [listComments, setListComments] = useState([]);
+    //Edit
+    const [flag, setFlag] = useState(0)
+    const [editButton, setEditButton] = useState(false) 
 
     useEffect(() => {
         let ignore = false;
@@ -71,11 +77,33 @@ const cadastro = () => {
         setAuthor('')
     }
 
+    const edit = (id) => {
+        const comment = listaRegistro.getCommentsById(id)
+
+        if(comment) {
+            setFrase(comment.frase)
+            setAuthor(comment.author)
+
+            setFlag(id)
+            setEditButton(true)
+        }
+    }
+
+    const updateValues = () => {
+        listaRegistro.editComment(flag, frase, author);
+
+        setFrase('');
+        setAuthor('');
+
+        setEditButton(false)
+        setFlag(0)
+    }
+
     return (
         <>
             <Header />
             <div className={styles.all}>
-                <Cadastro author={author} frase={frase} setAuthor={setAuthor} setFrase={setFrase} textFrase={'Digite uma frase'} textAuthor={'Autor da frase'} onClick={add} buttonText={'Enviar'} list={listaRegistro.madeComments} />
+                <Cadastro author={author} frase={frase} setAuthor={setAuthor} setFrase={setFrase} textFrase={'Digite uma frase'} textAuthor={'Autor da frase'} onClick={add} buttonText={'Enviar'} list={listaRegistro.madeComments} editButton={editButton} update={updateValues} add={add}/>
                 <div className={styles.list}>
                     <div className={styles.api}>
                         <div>
@@ -131,6 +159,7 @@ const cadastro = () => {
                                     }} className={styles.heart}><FaHeart style={{ color: cardsColor, transition: 'ease-in' }} /></button>
                                     <div>
                                         <button onClick={() => removeComment(comment)}>Lixeira</button>
+                                        <button onClick={() => edit(comment.id)}>Editar</button>
                                     </div>
                                 </div>
                             </div>

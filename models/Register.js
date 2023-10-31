@@ -47,4 +47,16 @@ export class ListaRegistro {
         }
         console.log(commentFind);
     }
+
+    getCommentsById(id) {
+        return this.madeComments.find((comment) => comment.id == id)
+    }
+
+    editComment(id, frase, author) {
+        const comment = this.getCommentsById(id);
+
+        comment.frase = frase;
+        comment.author = author;
+        return comment;
+    }
 }
