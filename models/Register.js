@@ -3,7 +3,7 @@ export class Registro {
         this.id = this.generateId();
         this.frase = frase;
         this.author = author;
-        this.heart = 0
+        this.heart = false;
     }
 
     generateId() {
@@ -21,7 +21,7 @@ export class ListaRegistro {
     }
 
     getAllComments() {
-        return this.madeComments
+        return this.madeComments;
     }
 
     emptyInputs(frase, author) {
@@ -34,14 +34,29 @@ export class ListaRegistro {
         }
     }
 
-    getCommentById(id) {
+    removeComment(dados) {
+        this.madeComments = this.madeComments.filter(comment => comment.id !== dados)
+    }
+
+    addHeart(comment) {
+        const commentFind = comment;
+        if(commentFind.heart == false) {
+            commentFind.heart = true;
+        } else {
+            commentFind.heart = false;
+        }
+        console.log(commentFind);
+    }
+
+    getCommentsById(id) {
         return this.madeComments.find((comment) => comment.id == id)
     }
 
-    excludeComment(id) {
-        const listComments = this.madeComments = this.madeComments.filter(
-            (comment) => comment.id != id
-        );
-        return listComments;
+    editComment(id, frase, author) {
+        const comment = this.getCommentsById(id);
+
+        comment.frase = frase;
+        comment.author = author;
+        return comment;
     }
 }
