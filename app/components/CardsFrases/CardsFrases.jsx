@@ -4,23 +4,14 @@ import personagens from '@/data/chuckNorris';
 import Randomizer from '../randomizer/Randomizer';
 import { useState, useEffect } from 'react';
 import { FaHeart } from 'react-icons/fa6'
+const listaRegistro = new ListaRegistro();
 
 
-const CardFrases = ({ list, exclude }) => {
+const CardFrases = ({list}) => {
     const registro = new Registro();
-    const [heart, setHeart] = useState(registro.heart)
     const [color, setColor] = useState('#000')
+    const [listRegister, setListRegister] = useState(listaRegistro.getAllComments())
     const [dadosApi, setDadosApi] = useState('')
-
-    const addHeart = (id) => {
-        if (heart == 0) {
-            setHeart(1)
-            setColor('#d21f3c')
-        } else {
-            setHeart(0)
-            setColor('#000')
-        }
-    }
 
     useEffect(() => {
         let ignore = false;
@@ -44,6 +35,15 @@ const CardFrases = ({ list, exclude }) => {
 
     }, [])
 
+    const removeComment = (id) => {
+        const comments = listaRegistro.getAllComments();
+        
+        if(comments) {
+            listaRegistro.removeComment(id)
+            setListRegister(listRegister.getAllComments)
+        }
+    }
+
     return (
         <div className={styles.list}>
             <div className={styles.api}>
@@ -58,9 +58,15 @@ const CardFrases = ({ list, exclude }) => {
                                             <p><i>- Chuck Norris</i></p>
                                         </div>
                                         <div>
-                                            <button onClick={addHeart} className={styles.heart}><FaHeart style={{ color: color, transition: 'ease-in' }} /> {heart}</button>
+                                            <button onClick={() => {
+                                                if(color == '#000') {
+                                                    setColor('#de0a26')
+                                                } else {
+                                                    setColor('#000')
+                                                }
+                                            }} className={styles.heart}><FaHeart style={{ color: color, transition: 'ease-in' }} /></button>
                                             <div>
-                                                <button onClick={exclude(() => comment.id)}>Lixeira</button>
+                                                <button>Lixeira</button>
                                             </div>
                                         </div>
                                     </div>
@@ -78,9 +84,9 @@ const CardFrases = ({ list, exclude }) => {
                         <p><strong>" {comment.frase} "</strong></p>
                         <p><i>{`- ${comment.author}`}</i></p>
                         <div>
-                            <button onClick={addHeart} className={styles.heart}><FaHeart style={{ color: color, transition: 'ease-in' }} /> {heart}</button>
+                            <button className={styles.heart}><FaHeart style={{ color: '#000', transition: 'ease-in' }} /></button>
                             <div>
-                                <button onClick={exclude(() => comment.id)}>Lixeira</button>
+                                <button onClick={() => removeComment(comment.id)}>Lixeira</button>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@ export class Registro {
         this.id = this.generateId();
         this.frase = frase;
         this.author = author;
-        this.heart = 0
+        this.heart = false;
     }
 
     generateId() {
@@ -21,7 +21,7 @@ export class ListaRegistro {
     }
 
     getAllComments() {
-        return this.madeComments
+        return this.madeComments;
     }
 
     emptyInputs(frase, author) {
@@ -34,14 +34,8 @@ export class ListaRegistro {
         }
     }
 
-    getCommentById(id) {
-        return this.madeComments.find((comment) => comment.id == id)
-    }
-
-    excludeComment(id) {
-        const listComments = this.madeComments = this.madeComments.filter(
-            (comment) => comment.id != id
-        );
-        return listComments;
+    removeComment(id) {
+        this.madeComments = this.madeComments.filter(comment => comment.id !== id)
+        console.log(this.madeComments);
     }
 }
