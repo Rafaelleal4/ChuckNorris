@@ -29,7 +29,7 @@ function Footer() {
               </Link>
           </div>
           <div id={styles.texto}>
-            <p id={styles.txt}>todos os direitos reservados</p>
+            <p id={styles.txt}>Todos Os Direitos Reservados</p>
           </div>
 
         </div>
