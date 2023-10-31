@@ -34,8 +34,17 @@ export class ListaRegistro {
         }
     }
 
-    removeComment(id) {
-        this.madeComments = this.madeComments.filter(comment => comment.id !== id)
-        console.log(this.madeComments);
+    removeComment(chuck) {
+        this.madeComments = this.madeComments.filter(comment => comment.id !== chuck.id)
+    }
+
+    addHeart(comment) {
+        const commentFind = comment;
+        if(commentFind.heart == false) {
+            commentFind.heart = true;
+        } else {
+            commentFind.heart = false;
+        }
+        console.log(commentFind);
     }
 }

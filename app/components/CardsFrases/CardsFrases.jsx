@@ -7,7 +7,7 @@ import { FaHeart } from 'react-icons/fa6'
 const listaRegistro = new ListaRegistro();
 
 
-const CardFrases = ({list}) => {
+const CardFrases = ({ list }) => {
     const registro = new Registro();
     const [color, setColor] = useState('#000')
     const [listRegister, setListRegister] = useState(listaRegistro.getAllComments())
@@ -35,15 +35,6 @@ const CardFrases = ({list}) => {
 
     }, [])
 
-    const removeComment = (id) => {
-        const comments = listaRegistro.getAllComments();
-        
-        if(comments) {
-            listaRegistro.removeComment(id)
-            setListRegister(listRegister.getAllComments)
-        }
-    }
-
     return (
         <div className={styles.list}>
             <div className={styles.api}>
@@ -59,7 +50,7 @@ const CardFrases = ({list}) => {
                                         </div>
                                         <div>
                                             <button onClick={() => {
-                                                if(color == '#000') {
+                                                if (color == '#000') {
                                                     setColor('#de0a26')
                                                 } else {
                                                     setColor('#000')
