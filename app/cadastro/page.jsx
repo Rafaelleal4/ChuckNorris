@@ -6,7 +6,7 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import personagens from '@/data/chuckNorris';
 import { useState, useEffect } from 'react';
-import { FaHeart } from 'react-icons/fa6'
+import { FaHeart, FaTrashCan, FaPencil } from 'react-icons/fa6'
 const listaRegistro = new ListaRegistro();
 
 
@@ -133,8 +133,8 @@ const cadastro = () => {
                                                             }
                                                         }} className={styles.heart}><FaHeart style={{ color: color, transition: 'ease-in' }} /></button>
                                                         <div>
-                                                            <button onClick={() => removeComment(dadosApi.id)}>Lixeira</button>
-                                                            <button onClick={() => edit(dadosApi.id)}>Editar</button>
+                                                            <button className={styles.actions} onClick={() => removeComment(dadosApi.id)}><FaTrashCan /></button>
+                                                            <button className={styles.actions} onClick={() => edit(dadosApi.id)}><FaPencil /></button>
                                                         </div>
                                                     </div>
                                                 </div>
