@@ -122,7 +122,7 @@ const cadastro = () => {
                         <div>
                             {
                                 dadosApi ? (
-                                    <div>
+                                    <div className={styles.cards}>
                                         {
                                             pegarTodos.filter((comment) => {
                                                 if (text == "") {

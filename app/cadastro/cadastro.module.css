@@ -121,3 +121,10 @@
     text-overflow: ellipsis;
     position: relative;
 }
+
+.cards {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+}
