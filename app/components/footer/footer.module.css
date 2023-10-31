@@ -32,9 +32,14 @@
 .link :hover {
    color: #63420e;
 }
+.h3{
+    font-family: fantasy;
+    font-size: 22px;
+   
+}
 
 #txt {
-    font-size: 25px;
+    font-size: 24px;
     font-family: Brush Script MT, Brush Script Std, cursive;
 }
 

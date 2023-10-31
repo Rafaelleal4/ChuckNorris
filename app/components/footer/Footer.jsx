@@ -14,7 +14,7 @@ function Footer() {
             alt="gif do Chuck Norris chutando" />
         </div>
         <div className={styles.conteudo}>
-          <h3>Contatos:</h3>
+          <h3 className={styles.h3}>Contatos:</h3>
           <div className={styles.flex}> 
             <div>
               <Link href={'https://www.instagram.com/'} target='_blank' className={styles.link}>
