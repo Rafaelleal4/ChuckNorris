@@ -7,6 +7,7 @@ import Footer from "../components/footer/Footer";
 import personagens from '@/data/chuckNorris';
 import { useState, useEffect } from 'react';
 import { FaHeart, FaTrashCan, FaPencil } from 'react-icons/fa6'
+import SearchBar from "../components/SearchBar/SearchBar";
 const listaRegistro = new ListaRegistro();
 
 
@@ -22,6 +23,8 @@ const cadastro = () => {
     const [color, setColor] = useState('#000')
     const [dadosApi, setDadosApi] = useState('')
     const [flag, setFlag] = useState(0)
+    //Input
+    const [text, setText] = useState('')
 
     const [pegarTodos, setPegarTodos] = useState(listaRegistro.getAllComments())
 
@@ -111,6 +114,9 @@ const cadastro = () => {
             <Header />
             <div className={styles.all}>
                 <Cadastro author={author} frase={frase} setAuthor={setAuthor} setFrase={setFrase} textFrase={'Digite uma frase'} textAuthor={'Autor da frase'} onClick={add} buttonText={'Enviar'} list={listaRegistro.madeComments} editButton={editButton} update={updateValues} add={add} />
+                <div className={styles.container}>
+                    <input type="text" placeholder='🔍 Pesquisar' value={text} onChange={e => setText(e.target.value)} className={styles.input} />
+                </div>
                 <div className={styles.list}>
                     <div className={styles.api}>
                         <div>
@@ -118,7 +124,13 @@ const cadastro = () => {
                                 dadosApi ? (
                                     <div>
                                         {
-                                            pegarTodos.map((dadosApi) =>
+                                            pegarTodos.filter((comment) => {
+                                                if (text == "") {
+                                                    return comment
+                                                } else if (comment.author.toLowerCase().includes(text.toLocaleLowerCase())) {
+                                                    return comment
+                                                }
+                                            }).map((dadosApi) =>
                                                 <div key={dadosApi.id} className={styles.cardAPI} >
                                                     <div className={styles.text}>
                                                         <p><strong>{dadosApi.frase}</strong></p>
