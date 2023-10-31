@@ -22,14 +22,8 @@ Tecnologias Utilizadas
 - React: 
 Para o desenvolvimento do frontend da aplicação.
 
-- Node.js: 
-Para o backend da aplicação.
-
-- Express.js: 
-Como framework para roteamento e controle de solicitações.
-
-- PostgreSQL: 
-Banco de dados para armazenar os registros de frases.
+- React Icons:
+Bibiloteca usada para incorporar ícones em componentes React de maneira fácil e conveniente.
 
 - Axios: 
 Biblioteca para fazer solicitações à API externa.
@@ -54,7 +48,12 @@ O projeto "Chuck Norris Memes" é um trabalho em andamento. Implementações fut
 - Melhorar a interface do usuário.
 
 ## Colaboradores
-Este projeto foi desenvolvido por um único colaborador como parte de um projeto pessoal de estudo.
+- Rafael Leal - https://github.com/Rafaelleal4
+- Noah Meirelles - https://github.com/noahmeirelles
+- Caio Ciccarelli - https://github.com/CaioCicca
+- Pablo Couto - https://github.com/pablo-boop
+- Lucas Rios - https://github.com/LucasRiosF
+- Nathan - https://github.com/nathanhalgumacoisa
 
 ## Status do Projeto
 O projeto "Chuck Norris Memes" está em andamento e continua a receber melhorias e atualizações conforme necessário.
