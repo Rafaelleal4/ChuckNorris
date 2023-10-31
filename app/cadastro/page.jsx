@@ -1,64 +1,35 @@
 "use client"
-import { useState, useEffect } from "react"
 import { Registro, ListaRegistro } from "@/models/Register";
 import Cadastro from "../components/Cadastro/Cadastro";
-import personagens from '@/data/chuckNorris';
-import { FaHeart } from 'react-icons/fa6'
 import styles from "../cadastro/cadastro.module.css"
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
+import personagens from '@/data/chuckNorris';
+import { useState, useEffect } from 'react';
+import { FaHeart } from 'react-icons/fa6'
 const listaRegistro = new ListaRegistro();
 
+
 const cadastro = () => {
-    //Valores
+    const [listaTotal, setListaTotal] = useState([])
+    const [editButton, setEditButton] = useState(false)
+
+    const [list, setList] = useState(listaRegistro.madeComments)
     const [frase, setFrase] = useState('');
     const [author, setAuthor] = useState('');
-    //Estilização
+    const registro = new Registro();
+    const [heart, setHeart] = useState(registro.heart)
     const [color, setColor] = useState('#000')
-    const [show, setShow] = useState('flex')
-    const [cardsColor, setCardsColor] = useState('')
-    //API e list
     const [dadosApi, setDadosApi] = useState('')
-    const [listComments, setListComments] = useState([]);
-    //Edit
     const [flag, setFlag] = useState(0)
-    const [editButton, setEditButton] = useState(false) 
 
-    useEffect(() => {
-        let ignore = false;
-
-        const persoFet = async () => {
-            try {
-                const dados = await personagens()
-                if (!ignore) {
-                    setDadosApi(dados)
-                    console.log(dados)
-                }
-            } catch (e) {
-                throw e
-            }
-        };
-        persoFet();
-
-        return () => {
-            ignore = true;
-        };
-
-    }, [])
+    const [pegarTodos, setPegarTodos] = useState(listaRegistro.getAllComments())
 
     const add = () => {
-        const registro = new Registro(frase, author);
+        const registro = new Registro(frase, `- ${author}`);
         verifyInputs(registro)
-        console.log(listaRegistro.madeComments);
-    }
-
-    const removeComment = (chuck) => {
-        listaRegistro.removeComment(chuck)
-        setListComments(listaRegistro.getAllComments())
-    }
-
-    const addHeart = (comment) => {
-        listaRegistro.addHeart(comment)
+        const updatedRegistro = [...listaTotal, registro];
+        setListaTotal(listaRegistro.getAllComments(updatedRegistro));
     }
 
     const verifyInputs = (registro) => {
@@ -68,6 +39,7 @@ const cadastro = () => {
         ) : (
             alert("Deu bom!!!"),
             listaRegistro.add(registro),
+            setPegarTodos(listaRegistro.getAllComments()),
             clean()
         )
     }
@@ -77,10 +49,19 @@ const cadastro = () => {
         setAuthor('')
     }
 
+    const removeComment = (chuck) => {
+        listaRegistro.removeComment(chuck)
+        setPegarTodos(listaRegistro.getAllComments())
+    }
+
+    const addHeart = (comment) => {
+        listaRegistro.addHeart(comment)
+    }
+
     const edit = (id) => {
         const comment = listaRegistro.getCommentsById(id)
 
-        if(comment) {
+        if (comment) {
             setFrase(comment.frase)
             setAuthor(comment.author)
 
@@ -99,11 +80,36 @@ const cadastro = () => {
         setFlag(0)
     }
 
+
+    useEffect(() => {
+        let ignore = false;
+
+        const persoFet = async () => {
+            try {
+                const dados = await personagens()
+                setDadosApi(dados)
+                if (!ignore) {
+                    const bonitinho = new Registro(dados.value, "- Chuck Norries")
+                    listaRegistro.add(bonitinho)
+                    setPegarTodos(listaRegistro.getAllComments())
+                }
+            } catch (e) {
+                throw e
+            }
+        };
+        persoFet();
+
+        return () => {
+            ignore = true;
+        };
+
+    }, [])
+
     return (
         <>
             <Header />
             <div className={styles.all}>
-                <Cadastro author={author} frase={frase} setAuthor={setAuthor} setFrase={setFrase} textFrase={'Digite uma frase'} textAuthor={'Autor da frase'} onClick={add} buttonText={'Enviar'} list={listaRegistro.madeComments} editButton={editButton} update={updateValues} add={add}/>
+                <Cadastro author={author} frase={frase} setAuthor={setAuthor} setFrase={setFrase} textFrase={'Digite uma frase'} textAuthor={'Autor da frase'} onClick={add} buttonText={'Enviar'} list={listaRegistro.madeComments} editButton={editButton} update={updateValues} add={add} />
                 <div className={styles.list}>
                     <div className={styles.api}>
                         <div>
@@ -111,30 +117,28 @@ const cadastro = () => {
                                 dadosApi ? (
                                     <div>
                                         {
-                                            <div className={styles.cardAPI} style={{display: show }}>
-                                                <div key={dadosApi.id} className={styles.text}>
-                                                    <p><strong>" {dadosApi.value} "</strong></p>
-                                                    <p><i>- Chuck Norris</i></p>
-                                                </div>
-                                                <div>
-                                                    <button onClick={() => {
-                                                        if (color == '#000') {
-                                                            setColor('#de0a26')
-                                                        } else {
-                                                            setColor('#000')
-                                                        }
-                                                    }} className={styles.heart}><FaHeart style={{ color: color, transition: 'ease-in' }} /></button>
+                                            pegarTodos.map((dadosApi) =>
+                                                <div key={dadosApi.id} className={styles.cardAPI} >
+                                                    <div className={styles.text}>
+                                                        <p><strong>{dadosApi.frase}</strong></p>
+                                                        <p><i>{dadosApi.author}</i></p>
+                                                    </div>
                                                     <div>
                                                         <button onClick={() => {
-                                                            if (show == 'flex') {
-                                                                setShow('none')
+                                                            addHeart(dadosApi)
+                                                            if (color == '#000') {
+                                                                setColor('#de0a26')
                                                             } else {
-                                                                setShow('flex')
+                                                                setColor('#000')
                                                             }
-                                                        }}>Lixeira</button>
+                                                        }} className={styles.heart}><FaHeart style={{ color: color, transition: 'ease-in' }} /></button>
+                                                        <div>
+                                                            <button onClick={() => removeComment(dadosApi.id)}>Lixeira</button>
+                                                            <button onClick={() => edit(dadosApi.id)}>Editar</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            )
                                         }
                                     </div>
                                 ) : (
@@ -143,28 +147,6 @@ const cadastro = () => {
                             }
                         </div>
                     </div>
-                    {
-                        listaRegistro.madeComments.map((comment) => (
-                            <div key={comment.id} className={styles.card}>
-                                <p><strong>" {comment.frase} "</strong></p>
-                                <p><i>{`- ${comment.author}`}</i></p>
-                                <div>
-                                    <button onClick={() => {
-                                        addHeart(comment)
-                                        if (comment.heart == false) {
-                                            setCardsColor('#000')
-                                        } else {
-                                            setCardsColor('#de0a26')
-                                        }
-                                    }} className={styles.heart}><FaHeart style={{ color: cardsColor, transition: 'ease-in' }} /></button>
-                                    <div>
-                                        <button onClick={() => removeComment(comment)}>Lixeira</button>
-                                        <button onClick={() => edit(comment.id)}>Editar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        ))
-                    }
                 </div>
             </div>
             <Footer />

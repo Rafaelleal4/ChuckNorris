@@ -34,8 +34,8 @@ export class ListaRegistro {
         }
     }
 
-    removeComment(chuck) {
-        this.madeComments = this.madeComments.filter(comment => comment.id !== chuck.id)
+    removeComment(dados) {
+        this.madeComments = this.madeComments.filter(comment => comment.id !== dados)
     }
 
     addHeart(comment) {
