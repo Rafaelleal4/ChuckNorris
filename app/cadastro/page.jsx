@@ -34,10 +34,8 @@ const cadastro = () => {
 
     const verifyInputs = (registro) => {
         listaRegistro.emptyInputs(frase, author) ? (
-            alert("Erro"),
             clean()
         ) : (
-            alert("Deu bom!!!"),
             listaRegistro.add(registro),
             setPegarTodos(listaRegistro.getAllComments()),
             clean()
@@ -56,6 +54,9 @@ const cadastro = () => {
 
     const addHeart = (comment) => {
         listaRegistro.addHeart(comment)
+        setPegarTodos(listaRegistro.getAllComments())
+        setAuthor("asd")
+        setFrase("saddsa")
     }
 
     const edit = (id) => {
@@ -124,14 +125,19 @@ const cadastro = () => {
                                                         <p><i>{dadosApi.author}</i></p>
                                                     </div>
                                                     <div>
-                                                        <button onClick={() => {
-                                                            addHeart(dadosApi)
-                                                            if (color == '#000') {
-                                                                setColor('#de0a26')
-                                                            } else {
-                                                                setColor('#000')
-                                                            }
-                                                        }} className={styles.heart}><FaHeart style={{ color: color, transition: 'ease-in' }} /></button>
+                                                        {
+                                                            dadosApi.heart ? (
+                                                                <button onClick={() => {
+                                                                    addHeart(dadosApi)
+                                                                }} className={styles.heart}><FaHeart color="#de0a26" style={{ transition: 'ease-in' }} />
+                                                                </button>
+                                                            ) : (
+                                                                <button onClick={() => {
+                                                                    addHeart(dadosApi)
+                                                                }} className={styles.heart}><FaHeart color="#000" style={{ transition: 'ease-in' }} />
+                                                                </button>
+                                                            )
+                                                        }
                                                         <div>
                                                             <button className={styles.actions} onClick={() => removeComment(dadosApi.id)}><FaTrashCan /></button>
                                                             <button className={styles.actions} onClick={() => edit(dadosApi.id)}><FaPencil /></button>
@@ -147,11 +153,13 @@ const cadastro = () => {
                             }
                         </div>
                     </div>
+
                 </div>
             </div>
             <Footer />
         </>
     )
+
 }
 
 export default cadastro
