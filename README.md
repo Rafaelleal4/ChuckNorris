@@ -8,22 +8,24 @@ O projeto "Chuck Norris Memes" é uma aplicação web que exibe frases e imagens
 
 ### Página Inicial:
 
-Exibe frases e imagens aleatórias do Chuck Norris obtidas de uma API externa.
-Carrega uma imagem aleatória de uma lista de memes para complementar a frase.
-Página de Cadastro:
+- Exibe frases e imagens aleatórias do Chuck Norris obtidas de uma API externa.
+- Carrega uma imagem aleatória de uma lista de memes para complementar a frase.
 
-Permite aos usuários registrar uma nova frase do Chuck Norris e o autor da frase.
-Valida os campos de entrada, exibindo mensagens de erro se os campos estiverem vazios.
-Exibe uma lista de frases registradas e permite a exclusão de frases.
-Tecnologias Utilizadas
+### Página de Cadastro:
 
-## As principais tecnologias e ferramentas utilizadas na construção do projeto são:
+- Permite aos usuários registrar uma nova frase do Chuck Norris e o autor da frase.
+- Valida os campos de entrada, exibindo mensagens de erro se os campos estiverem vazios.
+- Exibe uma lista de frases registradas e permite a exclusão de frases.
+- Permite aos usuários pesquisar alguma das frases cadastradas usando o nome do autor.
+- O usuário também tem a opção de excluir e editar uma frase já cadastrada por ele.
+
+## Tecnologias Utilizadas 
 
 - React: 
 Para o desenvolvimento do frontend da aplicação.
 
 - React Icons:
-Bibiloteca usada para incorporar ícones em componentes React de maneira fácil e conveniente.
+Biblioteca usada para incorporar ícones em componentes React de maneira fácil e conveniente.
 
 - Axios: 
 Biblioteca para fazer solicitações à API externa.
@@ -31,7 +33,7 @@ Biblioteca para fazer solicitações à API externa.
 - Next.js: 
 Framework React para renderização do lado do servidor.
 
-## Inicialização:
+## Inicialização
 Para inicializar o projeto após o clone do repositório, siga estas etapas:
 
 - Navegue para a pasta do frontend e execute npm install para instalar as dependências.
@@ -44,7 +46,7 @@ Para inicializar o projeto após o clone do repositório, siga estas etapas:
 O projeto "Chuck Norris Memes" é um trabalho em andamento. Implementações futuras planejadas incluem:
 
 - Adicionar autenticação de usuário.
-- Permitir que os usuários curtam frases do Chuck Norris.
+- Permitir que os usuários compartilhem frases do Chuck Norris.
 - Melhorar a interface do usuário.
 
 ## Colaboradores
