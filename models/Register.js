@@ -38,20 +38,6 @@ export class ListaRegistro {
         this.madeComments = this.madeComments.filter(comment => comment.id !== dados)
     }
 
-    addHeart(comment, setHeartColor) {
-        const commentFind = this.getCommentsById(comment.id);
-
-        if(commentFind.heart == false) {
-            commentFind.heart = true; 
-            setHeartColor(true)
-        } else {
-            commentFind.heart = false;
-            setHeartColor(false)
-        }
-
-        return commentFind
-    }
-
     getCommentsById(id) {
         return this.madeComments.find((comment) => comment.id == id)
     }

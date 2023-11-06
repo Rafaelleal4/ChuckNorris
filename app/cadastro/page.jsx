@@ -54,11 +54,21 @@ const cadastro = () => {
         setPegarTodos(listaRegistro.getAllComments())
     }
 
-    // const addHeart = (comment) => {
-    //     listaRegistro.addHeart(comment)
-    //     console.log(comment);
-    //     setPegarTodos(listaRegistro.getAllComments())
-    // }
+    const addHeart = (comment) => {
+        comment.heart = !comment.heart;
+    
+        // Modify the color of the heart icon based on the comment.heart value
+        const updatedList = pegarTodos.map(item => {
+            if (item.id === comment.id) {
+                return {
+                    ...item,
+                    heart: comment.heart
+                };
+            }
+            return item;
+        });
+        setPegarTodos(updatedList);
+    }
 
     const edit = (id) => {
         const comment = listaRegistro.getCommentsById(id)
@@ -109,17 +119,7 @@ const cadastro = () => {
 
     return (
         <>
-            <Header/>
-            <div>
-                {
-                    darkMode ? (
-                        <button><FaSun /></button>,
-                        setDarkMode(false)
-                    ) : (
-                        <button><FaMoon /></button>
-                    )
-                }
-            </div>
+            <Header />
             <div className={styles.all}>
                 <Cadastro author={author} frase={frase} setAuthor={setAuthor} setFrase={setFrase} textFrase={'Digite uma frase'} textAuthor={'Autor da frase'} onClick={add} buttonText={'Enviar'} list={listaRegistro.madeComments} editButton={editButton} update={updateValues} add={add} />
                 <div className={styles.container}>
@@ -145,6 +145,9 @@ const cadastro = () => {
                                                         <p><i>{dadosApi.author}</i></p>
                                                     </div>
                                                     <div>
+                                                        <div>
+                                                            <button onClick={() => addHeart(dadosApi)} className={styles.heart}><FaHeart color={dadosApi.heart ? 'red' : 'black'}/></button>
+                                                        </div>
                                                         <div>
                                                             <button className={styles.actions} onClick={() => removeComment(dadosApi.id)}><FaTrashCan /></button>
                                                             <button className={styles.actions} onClick={() => edit(dadosApi.id)}><FaPencil /></button>
