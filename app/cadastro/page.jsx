@@ -5,10 +5,12 @@ import styles from "../cadastro/cadastro.module.css"
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import personagens from '@/data/chuckNorris';
-import { useState, useEffect } from 'react';
-import { FaHeart, FaTrashCan, FaPencil } from 'react-icons/fa6'
+import { useState, useEffect, useContext } from 'react';
+import { FaHeart, FaTrashCan, FaPencil, FaMoon, FaSun } from 'react-icons/fa6'
 import SearchBar from "../components/SearchBar/SearchBar";
 const listaRegistro = new ListaRegistro();
+import { DarkModeContext, DarkModeProvider } from "../context";
+import build from "next/dist/build";
 
 
 const cadastro = () => {
@@ -19,14 +21,17 @@ const cadastro = () => {
     const [frase, setFrase] = useState('');
     const [author, setAuthor] = useState('');
     const registro = new Registro();
-    const [heart, setHeart] = useState(registro.heart)
-    const [color, setColor] = useState('#000')
+    // const [heart, setHeart] = useState(registro.heart)
+    // const [color, setColor] = useState('#000')
     const [dadosApi, setDadosApi] = useState('')
     const [flag, setFlag] = useState(0)
     //Input
     const [text, setText] = useState('')
-
+    //Array completo com API
     const [pegarTodos, setPegarTodos] = useState(listaRegistro.getAllComments())
+
+    //Dark Mode
+    const [darkMode, setDarkMode] = useContext(DarkModeContext)
 
     const add = () => {
         const registro = new Registro(frase, `- ${author}`);
@@ -55,12 +60,11 @@ const cadastro = () => {
         setPegarTodos(listaRegistro.getAllComments())
     }
 
-    const addHeart = (comment) => {
-        listaRegistro.addHeart(comment)
-        setPegarTodos(listaRegistro.getAllComments())
-        setAuthor("asd")
-        setFrase("saddsa")
-    }
+    // const addHeart = (comment) => {
+    //     listaRegistro.addHeart(comment)
+    //     console.log(comment);
+    //     setPegarTodos(listaRegistro.getAllComments())
+    // }
 
     const edit = (id) => {
         const comment = listaRegistro.getCommentsById(id)
@@ -110,8 +114,19 @@ const cadastro = () => {
     }, [])
 
     return (
-        <>
-            <Header />
+        <DarkModeProvider>
+            <main style={{background: darkMode ? '#0f0f0f' : '#e6e6e6'}}>
+            <Header/>
+            <div>
+                {
+                    darkMode ? (
+                        <button><FaSun /></button>,
+                        setDarkMode(false)
+                    ) : (
+                        <button><FaMoon /></button>
+                    )
+                }
+            </div>
             <div className={styles.all}>
                 <Cadastro author={author} frase={frase} setAuthor={setAuthor} setFrase={setFrase} textFrase={'Digite uma frase'} textAuthor={'Autor da frase'} onClick={add} buttonText={'Enviar'} list={listaRegistro.madeComments} editButton={editButton} update={updateValues} add={add} />
                 <div className={styles.container}>
@@ -137,19 +152,6 @@ const cadastro = () => {
                                                         <p><i>{dadosApi.author}</i></p>
                                                     </div>
                                                     <div>
-                                                        {
-                                                            dadosApi.heart ? (
-                                                                <button onClick={() => {
-                                                                    addHeart(dadosApi)
-                                                                }} className={styles.heart}><FaHeart color="#de0a26" style={{ transition: 'ease-in' }} />
-                                                                </button>
-                                                            ) : (
-                                                                <button onClick={() => {
-                                                                    addHeart(dadosApi)
-                                                                }} className={styles.heart}><FaHeart color="#000" style={{ transition: 'ease-in' }} />
-                                                                </button>
-                                                            )
-                                                        }
                                                         <div>
                                                             <button className={styles.actions} onClick={() => removeComment(dadosApi.id)}><FaTrashCan /></button>
                                                             <button className={styles.actions} onClick={() => edit(dadosApi.id)}><FaPencil /></button>
@@ -169,7 +171,8 @@ const cadastro = () => {
                 </div>
             </div>
             <Footer />
-        </>
+            </main>
+        </DarkModeProvider>
     )
 
 }
