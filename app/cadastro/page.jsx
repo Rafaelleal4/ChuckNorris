@@ -9,9 +9,6 @@ import { useState, useEffect, useContext } from 'react';
 import { FaHeart, FaTrashCan, FaPencil, FaMoon, FaSun } from 'react-icons/fa6'
 import SearchBar from "../components/SearchBar/SearchBar";
 const listaRegistro = new ListaRegistro();
-import { DarkModeContext, DarkModeProvider } from "../context";
-import build from "next/dist/build";
-
 
 const cadastro = () => {
     const [listaTotal, setListaTotal] = useState([])
@@ -29,9 +26,6 @@ const cadastro = () => {
     const [text, setText] = useState('')
     //Array completo com API
     const [pegarTodos, setPegarTodos] = useState(listaRegistro.getAllComments())
-
-    //Dark Mode
-    const [darkMode, setDarkMode] = useContext(DarkModeContext)
 
     const add = () => {
         const registro = new Registro(frase, `- ${author}`);
@@ -114,8 +108,7 @@ const cadastro = () => {
     }, [])
 
     return (
-        <DarkModeProvider>
-            <main style={{background: darkMode ? '#0f0f0f' : '#e6e6e6'}}>
+        <>
             <Header/>
             <div>
                 {
@@ -171,8 +164,7 @@ const cadastro = () => {
                 </div>
             </div>
             <Footer />
-            </main>
-        </DarkModeProvider>
+        </>
     )
 
 }
